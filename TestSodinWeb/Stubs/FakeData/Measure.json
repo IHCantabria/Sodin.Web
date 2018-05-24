@@ -1,0 +1,6 @@
+{
+			"idEstacion" : "Q104",
+			"fecha" : ISODate("2017-05-26T18:45:00.000+02:00"),
+			"codigoVariable" : NumberInt("1"),
+			"valor" : 4
+		}

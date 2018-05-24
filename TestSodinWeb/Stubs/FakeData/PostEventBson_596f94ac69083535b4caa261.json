@@ -1,0 +1,234 @@
+{
+	"_id" : ObjectId("596f94ac69083535b4caa261"),
+	"coords" : {
+		"lat" : 43.3171,
+		"lon" : -4.60717
+	},
+	"fechaFin" : ISODate("2017-07-19T19:19:00.000+02:00"),
+	"fechaInicio" : ISODate("2017-07-19T19:17:00.000+02:00"),
+	"idEstacion" : "A078",
+	"idEvento" : "596f941069083535b4caa25c",
+	"lugar" : "Puentelles",
+	"medidas" : [
+		{
+			"valor" : 0.166,
+			"fecha" : ISODate("2017-07-19T19:00:00.000+02:00"),
+			"codigoVariable" : 0.0,
+			"idEstacion" : "A078"
+		},
+		{
+			"valor" : 0.0,
+			"fecha" : ISODate("2017-07-19T19:00:00.000+02:00"),
+			"codigoVariable" : 1.0,
+			"idEstacion" : "A078"
+		},
+		{
+			"valor" : 0.2,
+			"fecha" : ISODate("2017-07-19T19:30:00.000+02:00"),
+			"codigoVariable" : 0.0,
+			"idEstacion" : "A078"
+		},
+		{
+			"valor" : 0.222,
+			"fecha" : ISODate("2017-07-19T20:00:00.000+02:00"),
+			"codigoVariable" : 0.0,
+			"idEstacion" : "A078"
+		},
+		{
+			"valor" : 0.175,
+			"fecha" : ISODate("2017-07-19T20:30:00.000+02:00"),
+			"codigoVariable" : 0.0,
+			"idEstacion" : "A078"
+		},
+		{
+			"valor" : 0.1,
+			"fecha" : ISODate("2017-07-19T19:30:00.000+02:00"),
+			"codigoVariable" : 1.0,
+			"idEstacion" : "A078"
+		},
+		{
+			"valor" : 0.4,
+			"fecha" : ISODate("2017-07-19T20:00:00.000+02:00"),
+			"codigoVariable" : 1.0,
+			"idEstacion" : "A078"
+		},
+		{
+			"valor" : 0.15,
+			"fecha" : ISODate("2017-07-19T20:30:00.000+02:00"),
+			"codigoVariable" : 1.0,
+			"idEstacion" : "A078"
+		}
+	],
+	"tipo" : "Fluvial",
+	"tweets" : [
+		{
+			"datos_foto" : null,
+			"id_tweet" : "887712245592989701",
+			"metadatos" : {
+				"n_likes" : 1.0,
+				"n_retweets" : 0.0,
+				"hashtags" : [ ],
+				"fecha_creacion" : "Wed Jul 19 16:34:26 +0000 2017",
+				"coordenadas" : {
+					"type" : "Point",
+					"coordinates" : [
+						-104.892692565918,
+						21.4944114685059
+					]
+				}
+			},
+			"datos_texto" : {
+				"sentimiento" : 0.5018564152380952,
+				"texto" : "En el año 1976 se desvió el río Mololoa de su cauce original. La obra mejoraría la imagen urbana y evitaría... https://t.co/ff2751MyxQ",
+				"palabras_clave" : [
+					"río Mololoa",
+					"cauce original",
+					"obra",
+					"imagen urbana"
+				]
+			}
+		},
+		{
+			"datos_foto" : {
+				"Description" : {
+					"captions" : [
+						{
+							"text" : "a close up of a hillside next to a tree",
+							"confidence" : 0.8529998365009818
+						}
+					],
+					"tags" : [
+						"outdoor",
+						"grass",
+						"building",
+						"field",
+						"mountain",
+						"standing",
+						"bridge",
+						"grazing",
+						"small",
+						"eating",
+						"hill",
+						"green",
+						"hillside",
+						"large",
+						"grassy",
+						"walking",
+						"group",
+						"tree",
+						"covered",
+						"zebra",
+						"giraffe",
+						"herd",
+						"man",
+						"white"
+					]
+				},
+				"Tags" : [
+					{
+						"confidence" : 0.9994237422943115,
+						"name" : "outdoor"
+					},
+					{
+						"confidence" : 0.9992122650146484,
+						"name" : "tree"
+					},
+					{
+						"confidence" : 0.9935322999954224,
+						"name" : "grass"
+					},
+					{
+						"confidence" : 0.9837238788604736,
+						"name" : "sky"
+					},
+					{
+						"confidence" : 0.19839169085025787,
+						"name" : "hillside"
+					}
+				],
+				"url" : "http://pbs.twimg.com/media/DFHCntKUwAAQ3L1.jpg",
+				"Adult" : {
+					"isAdultContent" : false,
+					"racyScore" : 0.014705285429954529,
+					"adultScore" : 0.012701811268925667,
+					"isRacyContent" : false
+				},
+				"Faces" : [ ],
+				"ImageType" : {
+					"clipArtType" : 0.0,
+					"lineDrawingType" : 0.0
+				},
+				"Categories" : [
+					{
+						"score" : 0.51171875,
+						"name" : "outdoor_mountain",
+						"detail" : {
+							"landmarks" : [ ]
+						}
+					}
+				]
+			},
+			"id_tweet" : "887710333946789888",
+			"metadatos" : {
+				"n_likes" : 0.0,
+				"n_retweets" : 3.0,
+				"hashtags" : [
+					{
+						"indices" : [
+							76.0,
+							82.0
+						],
+						"text" : "Soria"
+					}
+				],
+				"fecha_creacion" : "Wed Jul 19 16:26:51 +0000 2017",
+				"coordenadas" : {
+					"type" : "Point",
+					"coordinates" : [
+						-2.46898007392883,
+						41.7638893127441
+					]
+				}
+			},
+			"datos_texto" : {
+				"sentimiento" : 0.63872465,
+				"texto" : "RT @emecyl112: Evacuadas dos menores indispuestas en El Cañón del Río Lobos #Soria https://t.co/O7ZfQSNSLS https://t.co/OZqeZRS5CV",
+				"palabras_clave" : [
+					"Cañón",
+					"menores indispuestas",
+					"Evacuadas",
+					"Río Lobos"
+				]
+			}
+		},
+		{
+			"datos_foto" : null,
+			"id_tweet" : "887710137921798145",
+			"metadatos" : {
+				"n_likes" : 0.0,
+				"n_retweets" : 1.0,
+				"hashtags" : [ ],
+				"fecha_creacion" : "Wed Jul 19 16:26:04 +0000 2017",
+				"coordenadas" : {
+					"type" : "Point",
+					"coordinates" : [
+						-75.8972015380859,
+						8.73507022857666
+					]
+				}
+			},
+			"datos_texto" : {
+				"sentimiento" : 0.6030668260869565,
+				"texto" : "RT @jaccastillo81: Será que si le decimos a @JuanManSantos q damnificados x inundaciones del río Sinú en Córdoba son d las Farc les manda a…",
+				"palabras_clave" : [
+					"río Sinú",
+					"JuanManSantos q damnificados x inundaciones",
+					"Córdoba",
+					"Farc",
+					"RT",
+					"jaccastillo81"
+				]
+			}
+		}
+	]
+},

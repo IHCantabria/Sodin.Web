@@ -1,0 +1,214 @@
+﻿
+.active {
+    border-top: 2px solid #f50057;
+}
+
+.title {
+    font-size: 2.1rem;
+    letter-spacing: 0.1em;
+    margin-left: 30px;
+}
+
+.footer-contact {
+    margin-left: 10px;
+    font-size: 13px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    margin-left: 5px;
+}
+
+.card-subtitle {
+    font-size: 1.0em;
+}
+
+.card-label {
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.side-bar {
+    height: 1002px;
+}
+
+.padding-top {
+    padding-top: 15px;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.toolbar-modal {
+    font-size: 20px;
+    background-color: #607D8B;
+    color: white;
+    min-height: 60px;
+    padding: 15px;
+}
+
+.twitter-blue {
+    color: #5ca9f2;
+}
+
+.no-records-message {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.logo {
+    margin-left: 15px;
+    margin-top: 15px;
+}
+
+.logos-about {
+    padding: 5%;
+}
+
+.img-full-width {
+    width: 100%;
+}
+
+.map-padding {
+    padding: 1px !important;
+}
+
+.map {
+    min-height: 700px;
+    width: 100%;
+}
+
+.filter-section {
+    max-height: 300px;
+}
+
+.filter-panel {
+    height: 300px;
+    padding: 24px;
+}
+
+    .filter-panel .divider {
+        margin-top: 15px;
+        margin-bottom: 5px;
+    }
+
+.form-filter-panel label {
+    margin: 15px;
+    margin-left: 25px;
+}
+
+.form-filter-panel input[type=date] {
+    margin-left: 15px;
+    width: 145px;
+}
+
+.font-card {
+    font-size: 15px;
+}
+
+.padding-card {
+    padding-top: 5px;
+}
+
+.border-card {
+    border-top: 1px solid #a0a0a0;
+    border-top: 1px solid rgba(160, 160, 160, 0.2);
+}
+
+.photos-filter {
+    margin-right: 15px;
+}
+
+.badgets-card {
+    padding: 10px 5px;
+}
+
+.badgets-card-left {
+    float: left !important;
+}
+
+.awesome-marker i {
+    font-size: 15px;
+    margin-top: 11px;
+}
+
+.version {
+    font-size: 10px;
+    margin-top: 30px;
+    letter-spacing: 0.07em;
+}
+
+/*Overlap styles from Materialize*/
+
+.btn {
+    background-color: #f50057;
+}
+
+    .btn:hover {
+        background-color: #ff5983;
+    }
+
+.progress {
+    background-color: rgb(248,187,208);
+}
+
+    .progress .indeterminate {
+        background-color: rgb(255,64,129);
+    }
+
+.switch label input[type=checkbox]:checked + .lever::after {
+    background-color: #f50057; /*Alt dark: #455A64*/
+}
+
+.switch label input[type=checkbox]:checked + .lever {
+    background-color: #ff5983; /*Alt dark: #a7c0cd*/
+}
+
+input[type="checkbox"].leaflet-control-layers-selector {
+    position: inherit;
+    left: inherit;
+    opacity: inherit;
+}
+
+[type="radio"].with-gap:checked + label:after {
+    background-color: #f50057; /*Alt dark: #455A64*/
+}
+
+[type="radio"]:checked + label:after,
+[type="radio"].with-gap:checked + label:before,
+[type="radio"].with-gap:checked + label:after {
+    border: 2px solid #f50057; /*Alt dark: #455A64*/
+}
+
+.modal-content {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.15);
+}
+
+@media (max-width: 992px) {
+    /* CSS that should be displayed if width is equal to or less than 600px goes here */
+    .side-bar {
+        height: 100%;
+    }
+
+    .filter-panel {
+        height: 100%;
+    }
+
+    .map {
+        min-height: 300px;
+        width: 100%;
+    }
+
+    .filter-panel label {
+        margin-bottom: 0;
+    }
+
+    .title {
+        margin-left: 0;
+    }
+}

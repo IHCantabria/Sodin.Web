@@ -1,0 +1,118 @@
+﻿<div class="row no-margin">
+    <div class="col s12 m12 l7 push-l5 xl8 push-xl4 no-padding z-depth-1">
+        <div class="row no-margin">
+            <div class="col s12 map-padding" ng-controller="MapCtrl as map">
+                <leaflet class="map" markers="map.markers" lf-center="map.center" layers="map.layers"
+                         event-broadcast="map.events" defaults="map.defaults" controls="map.controls">
+                </leaflet>
+            </div>
+        </div>
+        <div class="row no-margin filter-section">
+            <div class="filter-panel no-margin" ng-controller="FilterCtrl as filter">
+                <div class="row" style="padding-top:24px; padding-bottom:10px;">
+                    <div class="col s5 offset-s1 m4 offset-m2 l3 offset-l2 offset-l3">
+                        <div class="switch">
+                            <label>
+                                <input type="checkbox" ng-model="filter.eventsFilter.type.isRiver" checked>
+                                <span class="lever"></span>
+                                Fluviales
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col s5 offset-s1 m4 offset-m2 l3 offset-l1">
+                        <div class="switch">
+                            <label>
+                                <input type="checkbox" ng-model="filter.eventsFilter.type.isCoastal" checked>
+                                <span class="lever"></span>
+                                Costeros
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s10 offset-s1 divider"></div>
+                </div>
+                <div class="row">
+                    <form action="#" class="form-filter-panel">
+                        <div class="col s12 m5 offset-m1 l2 offset-l2">
+                            <input class="with-gap" name="timeFilters" type="radio" id="rblDay"
+                                   ng-model="filter.eventsFilter.date.lastDays" ng-value="1" />
+                            <label for="rblDay">Último Día</label>
+                        </div>
+                        <div class="col s12 m6 l2">
+                            <input class="with-gap" name="timeFilters" type="radio" id="rblWeek"
+                                   ng-model="filter.eventsFilter.date.lastDays" ng-value="7" />
+                            <label for="rblWeek">Última Semana</label>
+                        </div>
+                        <div class="col s12 m5 offset-m1 l2">
+                            <input class="with-gap" name="timeFilters" type="radio" id="rblMonth"
+                                   ng-model="filter.eventsFilter.date.lastDays" ng-value="31" />
+                            <label for="rblMonth">Último Mes</label>
+                        </div>
+                        <div class="col s12 m6 l2">
+                            <input class="with-gap" name="timeFilters" type="radio" id="rblAll"
+                                   ng-model="filter.eventsFilter.date.lastDays" ng-value="0" />
+                            <label for="rblAll">Siempre</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l5 pull-l7 xl4 pull-xl8 blue-grey lighten-5 side-bar no-padding z-depth-1" ng-controller="CatalogCtrl as catalog">
+        <div class="row" style="margin-bottom: 5px;">
+            <div class="col s12 no-padding hide-on-med-and-down">
+                <img src="../images/cover.png" class="img-full-width" alt="Cabecera de Eventos de Inundación">
+            </div>
+            <div class="col s12">
+                <h5 class="center primary-text-color padding-card">Catálogo de Eventos</h5>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 5px;">
+            <div class="col s12">
+                <table ng-table="catalog.configTable"
+                       class="table highlight bordered centered">
+                    <tbody>
+                        <tr ng-repeat="event in $data" ng-click="catalog.selectEvent(event)"
+                            ng-class="{activeRow: event.eventId === catalog.activeEvent.eventId}">
+                            <td data-title="'Lugar'" sortable="'place'">
+                                {{event.place}}
+                            </td>
+                            <td data-title="'Inicio'" sortable="'iniDate'">
+                                {{event.iniDate | date : 'dd/MM/yyyy H:mm'}}
+                            </td>
+                            <td data-title="'Fin'" sortable="'endDate'">
+                                {{event.endDate | date : 'dd/MM/yyyy H:mm'}}
+                            </td>
+                            <td data-title="'Tweets'" sortable="'tweets'">
+                                {{event.tweets.length}}
+                            </td>
+                            <td data-title="'Medidas'" sortable="'measures'">
+                                {{event.measures.length}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="no-records-message" ng-cloak>
+                    <span ng-show="catalog.events.length == 0">No hay eventos con estas condiciones</span>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="catalog.events.length > 0">
+            <div class="switch right photos-filter">
+                <label>
+                    <input type="checkbox" ng-model="catalog.isOnlyWithPhotos.active" checked>
+                    <span class="lever"></span>
+                    Solo tweets con foto
+                </label>
+            </div>
+        </div>
+        <div class="row" ng-show="catalog.events.length > 0">
+            <div class="col s6 offset-s4 m4 offset-m5 l9 offset-l3">
+                <a tooltipped class="waves-effect wbuaves-light btn" ng-click="catalog.goToEvent()" data-tooltip="Ir al detalle del evento">
+                    <i class="material-icons left">event</i>Ver Evento
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

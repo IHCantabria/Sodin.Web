@@ -1,0 +1,127 @@
+{
+			"datos_foto" : {
+				"Description" : {
+					"captions" : [
+						{
+							"text" : "a group of people standing in front of a crowd",
+							"confidence" : 0.926222247320372
+						}
+					],
+					"tags" : [
+						"person",
+						"cake",
+						"people",
+						"group",
+						"cutting",
+						"table",
+						"large",
+						"birthday",
+						"crowd",
+						"woman",
+						"sitting",
+						"cut",
+						"party",
+						"holding",
+						"man",
+						"standing",
+						"young",
+						"girl",
+						"bunch",
+						"train",
+						"board",
+						"room",
+						"white"
+					]
+				},
+				"Tags" : [
+					{
+						"confidence" : 0.9996962547302246,
+						"name" : "person"
+					},
+					{
+						"confidence" : 0.7600184679031372,
+						"name" : "people"
+					},
+					{
+						"confidence" : 0.6699208617210388,
+						"name" : "group"
+					},
+					{
+						"confidence" : 0.3581000864505768,
+						"name" : "crowd"
+					}
+				],
+				"url" : "http://pbs.twimg.com/media/C_f_7R5UMAA9ibk.jpg",
+				"Adult" : {
+					"isAdultContent" : false,
+					"racyScore" : 0.02554783970117569,
+					"adultScore" : 0.013857227750122547,
+					"isRacyContent" : false
+				},
+				"Faces" : [
+					{
+						"gender" : "Female",
+						"age" : NumberInt("17"),
+						"faceRectangle" : {
+							"width" : NumberInt("59"),
+							"top" : NumberInt("197"),
+							"left" : NumberInt("71"),
+							"height" : NumberInt("59")
+						}
+					},
+					{
+						"gender" : "Female",
+						"age" : NumberInt("32"),
+						"faceRectangle" : {
+							"width" : NumberInt("38"),
+							"top" : NumberInt("127"),
+							"left" : NumberInt("515"),
+							"height" : NumberInt("38")
+						}
+					},
+					{
+						"gender" : "Male",
+						"age" : NumberInt("18"),
+						"faceRectangle" : {
+							"width" : NumberInt("36"),
+							"top" : NumberInt("168"),
+							"left" : NumberInt("431"),
+							"height" : NumberInt("36")
+						}
+					}
+				],
+				"ImageType" : {
+					"clipArtType" : NumberInt("0"),
+					"lineDrawingType" : NumberInt("0")
+				},
+				"Categories" : [
+					{
+						"score" : 0.72265625,
+						"name" : "people_crowd"
+					}
+				]
+			},
+			"id_tweet" : NumberLong("862445428322652160"),
+			"metadatos" : {
+				"n_likes" : NumberInt("0"),
+				"n_retweets" : NumberInt("0"),
+				"hashtags" : [ ],
+				"fecha_creacion" : "Wed May 10 23:13:08 +0000 2017",
+				"coordenadas" : {
+					"type" : "Point",
+					"coordinates" : [
+						-92.901969909668,
+						17.9986400604248
+					]
+				}
+			},
+			"datos_texto" : {
+				"sentimiento" : 0.56579005,
+				"texto" : "Familiares realizan misa para fallecidos tras explosión por pirotecnia en Puebla. https://t.co/k0iofv6P9A",
+				"palabras_clave" : [
+					"explosión",
+					"misa",
+					"pirotecnia"
+				]
+			}
+		}

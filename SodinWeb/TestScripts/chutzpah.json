@@ -1,0 +1,20 @@
+﻿{
+  "Framework": "jasmine",
+  "References": [
+    { "Path": "../wwwroot/lib/angularjs/angular.js" },
+    { "Path": "../wwwroot/lib/angular-mocks/angular-mocks.js" },
+    { "Path": "../wwwroot/lib/angular-route/angular-route.js" },
+    { "Path": "../wwwroot/lib/angular-sanitize/angular-sanitize.js" },
+    { "Path": "../wwwroot/lib/angular-simple-logger/angular-simple-logger.js" },
+    { "Path": "../wwwroot/lib/leaflet/leaflet-src.js" },
+    { "Path": "../wwwroot/lib/ui-leaflet/ui-leaflet.js" },
+    { "Path": "../wwwroot/lib/angular-materialize/angular-materialize.js" },
+    { "Path": "../wwwroot/lib/jasmine/jasmine.js" },
+    { "Path": "../wwwroot/lib/moment/moment.js" },
+    { "Path": "../wwwroot/lib/angular-moment/angular-moment.js" },
+    { "Path": "https://unpkg.com/ng-table@4.0.0/bundles/ng-table.min.js" },
+    { "Path": "../wwwroot/lib/angular-timelinejs3/ng-timeline.js" },
+    { "Path": "../wwwroot/lib/TimelineJS3/js/timeline.js" },
+    { "Path": "../wwwroot/app.js" }
+  ]
+}

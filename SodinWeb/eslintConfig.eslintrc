@@ -1,0 +1,56 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "globals": {
+    "angular": true,
+    "window": true,
+    "$": true,
+    "L": true,
+    "_": true,
+    "chroma": true,
+    "Chart": true,
+    "moment": true,
+    "jsPDF": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-alert": "error",
+    "no-eval": "error",
+    "no-implicit-coercion": "error",
+    /*"no-magic-numbers": "warn",*/
+    "no-multi-spaces": "error",
+    "no-undef": "error",
+    "no-undefined": "off",
+    "no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "indent": [
+      "error",
+      4,
+      { "SwitchCase": 1 }
+    ],
+    "linebreak-style": [
+      "error",
+      "windows"
+    ],
+    "quotes": [
+      "warn",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    /* Style */
+    "camelcase": "warn",
+    "max-len": [ "warn", 140 ]
+  }
+}

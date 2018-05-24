@@ -1,0 +1,52 @@
+{
+  "name": "asp.net",
+  "private": true,
+  "dependencies": {
+    "angularjs": "1.6.4",
+    "angular-mocks": "1.6.4",
+    "angular-route": "1.6.4",
+    "angular-sanitize": "1.6.4",
+    "angular-moment": "1.0.1",
+    "angular-materialize": "0.2.2",
+    "angular-timelinejs3": "0.2.3",
+    "Chart.js": "2.6.0",
+    "Font-Awesome": "4.7.0",
+    "jasmine": "2.6.3",
+    "leaflet": "0.7.7",
+    "leaflet-fullscreen": "1.0.2",
+    "leaflet.awesome-markers": "2.0.1",
+    "materialize": "0.98.2",
+    "ui-leaflet": "2.0.0",
+    "underscore": "1.8.3"
+  },
+  "resolutions": {
+    "materialize": "0.98.2",
+    "leaflet": ">= 1.0.3",
+    "angular-route": "1.6.4",
+    "angular": ">=1.2.0 <1.7.0"
+  },
+  "exportsOverride": {
+    "leaflet": {
+      "images": "dist/images/*.*",
+      "/": "dist/*.*"
+    },
+    "materialize": {
+      "js": "dist/js/*.*",
+      "css": "dist/css/*.*",
+      "fonts/roboto": "dist/fonts/roboto/*.*"
+    },
+    "TimelineJS3": {
+      "js": "compiled/js/timeline.js",
+      "css": "compiled/css/*.*",
+      "css/icons": "compiled/css/icons/*.*"
+    },
+    "Font-Awesome": {
+      "css": "css/font-awesome.min.css",
+      "fonts": "fonts/*.*"
+    },
+    "leaflet.awesome-markers": {
+      "images": "dist/images/*.*",
+      "/": "dist/*.*"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+﻿table {
+    font-size: 14px;
+}
+
+.table th:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.table tr:hover {
+    cursor: pointer;
+}
+
+.ng-table-pager {
+    float: right;
+    margin-top: 10px;
+}
+
+.pagination li.active {
+    background-color: #f50057;
+}
+
+.pagination li:hover {
+    background-color: #f50057;
+}
+
+    .pagination li:hover a {
+        color: white;
+    }
+
+.activeRow {
+    color: #f50057;
+    background-color: #f2f2f2;
+    font-weight: 500;
+}

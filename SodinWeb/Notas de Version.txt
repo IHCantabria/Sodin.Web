@@ -1,0 +1,14 @@
+Notas de versión (v1.0)(18/05/2018)
+
+· Sección Visor:
+	- Catálogo de eventos
+	- Mapa: visor de eventos históricos SODIN + capas wms de zonas inundables (MAPAMA)		
+	- Filtrado de eventos por tipo y periodo
+
+· Sección Evento:
+	- Timeline con navegación
+	- Resumen del evento: ubicación + resumen estadísticas
+	- Visualización de tweets capturados: análisis de imagen + análisis de texto + metadatos tweet
+	- Visualización datos in situ: gráfica con datos de sensores + resumen estado estaciones
+
+· Sección About

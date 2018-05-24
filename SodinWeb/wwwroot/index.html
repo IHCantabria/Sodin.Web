@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SODIN: Sistema Operacional de Daños de Inundación</title>
+    <link rel="shortcut icon" href="images/favicon_azul.ico" />
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materializecss-->
+    <link href="lib/materialize/css/materialize.css" rel="stylesheet" />
+    <!-- Angular Ng-Table -->
+    <link href="https://unpkg.com/ng-table@4.0.0/bundles/ng-table.min.css" rel="stylesheet" />
+    <!-- Leaflet for Angular -->
+    <link href="lib/leaflet/leaflet.css" rel="stylesheet" />
+    <link href="lib/leaflet-fullscreen/dist/leaflet.fullscreen.css" rel="stylesheet" />
+    <!-- Timeline -->
+    <link href="lib/TimelineJS3/css/timeline.css" rel="stylesheet" />
+    <link href="css/event-timeline.css" rel="stylesheet" />
+    <!--FontAwesome-->
+    <link href="lib/Font-Awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="lib/leaflet.awesome-markers/leaflet.awesome-markers.css" rel="stylesheet" />
+    <!-- Site Css-->
+    <link href="css/table.css" rel="stylesheet" />
+    <link href="css/site.css" rel="stylesheet" />
+    <link href="css/palette.css" rel="stylesheet" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68862903-20"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-68862903-20');
+    </script>
+</head>
+<body ng-app="sodinApp">
+    <nav ng-controller="MainCtrl as main" ng-cloak>
+        <div class="nav-wrapper primary-color">
+            <a tooltipped href="http://sodin.ihcantabria.es/" target="_blank" class="brand-logo title"
+               data-tooltip="Sistema Operacional de Daños de Inundación">
+                SODIN
+                <span class="subtitle hide-on-med-and-down"> |  Sistema Operacional de Daños de Inundación  |</span>
+                <small class="version">v{{main.version}}</small>
+            </a>
+
+            <a href="#" data-activates="mobile-menu" class="button-collapse" data-sidenav="left" data-menuwidth="200" data-closeonclick="true">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down">
+                <li ng-class="{active : main.activeMenu.name === main.menuItems[0].name}">
+                    <a tooltipped href="#/visor" data-tooltip="Ir al visor de eventos de inundación" ng-click="main.setActiveMenu(0)">Visor</a>
+                </li>
+                <li ng-class="{active : main.activeMenu.name === main.menuItems[1].name}">
+                    <a tooltipped ng-click="main.goToEvent()"
+                       data-tooltip="Ir al detalle del evento seleccionado">Evento</a>
+                </li>
+                <li ng-class="{active : main.activeMenu.name === main.menuItems[2].name}">
+                    <a tooltipped data-target='modalAbout' modal data-tooltip="Acerca de SODIN..." ng-click="main.setActiveMenu(2)">Acerca de...</a>
+                </li>
+            </ul>
+            <ul class="side-nav" id="mobile-menu">
+                <li><a tooltipped href="#/visor" data-tooltip="Ir al visor de eventos de inundación" ng-click="main.setActiveMenu(0)">Visor</a></li>
+                <li>
+                    <a tooltipped ng-href="#/evento/{{main.activeEvent.eventId}}" ng-click="main.setActiveMenu(1)"
+                       data-tooltip="Ir al detalle del evento seleccionado">Evento</a>
+                </li>
+                <li><a tooltipped href="#" data-tooltip="Acerca de SODIN..." ng-click="main.setActiveMenu(2)">Acerca De...</a></li>
+            </ul>
+        </div>
+        <div class="progress" ng-cloak ng-show="main.utils.progressBar.state" style="position: absolute;z-index: 10001;margin: 0;">
+            <div class="indeterminate"></div>
+        </div>
+    </nav>
+    <div id="wrapper" ng-cloak>
+        <div id="main">
+            <div ng-view>
+            </div>
+        </div>
+    </div>
+    <footer class="page-footer primary-color" ng-cloak>
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m12 l7">
+                    <h6 class="white-text subtitle">Un proyecto de:</h6>
+                    <img class="logo" src="images/Logo-IH-Cantabria-Universidad-Cantabria.png" alt="Instituto de Hidráulica Ambiental" />
+                    <img class="logo" src="images/FIH_UC.png" alt="Fundación Instituto de Hidráulica Ambiental" />
+                </div>
+                <div class="col s12 m12 l5">
+                    <h6 class="white-text subtitle">Contacto:</h6>
+                    <div class="white-text footer-contact">
+                        <strong>Instituto de Hidráulica Ambiental  de Cantabria</strong><br>
+                        C/ Isabel Torres nº15.n (PCTCAN)<br>
+                        39011- Santander, Cantabria España<br>
+                        Tel.:+034 942 20 16 16  Fax:+034 942 26 63 61<br>
+                        fernandezf@unican.es
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright dark-primary-color">
+            <div class="container">
+                © 2018 IHCantabria
+                <a class="grey-text text-lighten-4 right" target="_blank" href="http://www.ihcantabria.com">http://wwww.ihcantabria.com</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal About -->
+    <div id="modalAbout" class="modal">
+        <div class="toolbar-modal">
+            Acerca del #ProyectoSODIN
+        </div>
+        <div class="modal-content">
+            <p>
+                Este proyecto trata de colaborar en las labores de mitigación de inundaciones mediante la generación de un Sistema Operacional de Daños de Inundaciones (SODIN), capaz de recopilar de forma automatizada la información de daños originada durante y tras los eventos de inundación costeros y fluviales, mejorando considerablemente la resolución espacial y temporal de observaciones. Para ello establecemos las siguientes metas:
+            </p>
+            <ol>
+                <li>Establecer un desencadenador de posibles eventos de inundación.</li>
+                <li>Obtener operacionalmente información de las RRSS en tiempo real tras la activación del evento.</li>
+                <li>Obtener operacionalmente información de proveedores meteorológicos y oceanográficos: estaciones meteorológicas, aforos, boyas, modelos, etc..</li>
+                <li>Analizar imágenes y textos obtenidos operacionalmente.</li>
+                <li>Integrar toda la información del evento para ponerla a disposición para futuros análisis.</li>
+            </ol>
+            <div id="logos" class="logos-about">
+                <a tooltipped href="http://ihcantabria.com" style="margin-right: 15%; margin-left: 10%;" target="_blank" data-tooltip="Instituto de Hidráulica Ambiental de Cantabria">
+                    <img alt="IHCantabria" src="../images/IH_UC_75.png">
+                </a>
+                <a tooltipped href="http://www.sodercan.es/" target="_blank" data-tooltip="Sociedad para el Desarrollo Regional de Cantabria">
+                    <img alt="Fundación Biodiversidad" src="images/Logo-SODERCAN-Vectorizado_75.jpg">
+                </a>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a tooltipped class="waves-effect waves-light btn-flat left" target="_blank" href="http://www.sodin.ihcantabria.es/" data-tooltip="Proyecto SODIN">
+                + Info Proyecto Sodin
+            </a>
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
+        </div>
+    </div>
+
+    <!-- Libs Javascript -->
+    <!--JQuery-->
+    <script src="lib/jquery/jquery.js"></script>
+    <!--Angular-->
+    <script src="lib/angularjs/angular.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+    <script src="lib/angular-sanitize/angular-sanitize.js"></script>
+    <script src="lib/angular-simple-logger/angular-simple-logger.js"></script>
+    <script src="lib/angular-materialize/angular-materialize.js"></script>
+    <!--Angular Ng-Table -->
+    <script src="https://unpkg.com/ng-table@4.0.0/bundles/ng-table.min.js"></script>
+    <!-- Timeline -->
+    <script src="lib/TimelineJS3/js/timeline.js"></script>
+    <script src="lib/angular-timelinejs3/ng-timeline.js"></script>
+    <!-- Materialize -->
+    <script src="lib/materialize/js/materialize.js"></script>
+    <!--Leaflet for Angular -->
+    <script src="lib/leaflet/leaflet-src.js"></script>
+    <script src="lib/ui-leaflet/ui-leaflet.js"></script>
+    <script src="lib/leaflet-fullscreen/dist/Leaflet.fullscreen.min.js"></script>
+    <script src="lib/leaflet.awesome-markers/leaflet.awesome-markers.js"></script>
+    <!-- Moment -->
+    <script src="lib/moment/moment.js"></script>
+    <script src="lib/angular-moment/angular-moment.js"></script>
+    <!-- Underscore -->
+    <script src="lib/underscore/underscore.js"></script>
+    <!-- IH-SODIN (DEV)-->
+    <script src="app.js"></script>
+    <!-- IH-SODIN (PROD)
+    <script src="dist/app.min.js"></script>-->
+</body>
+</html>

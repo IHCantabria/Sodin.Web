@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="../lib/leaflet/leaflet.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="eventMap" style="height:550px; width:100%">
+    </div>
+    <script src="../lib/jquery/jquery.js"></script>
+    <script src="../lib/leaflet/leaflet-src.js"></script>
+    <script>
+        $(document).ready(function () {
+            init();
+        });
+
+        function init() {
+            const eventId = getEventId();            
+
+            fetch(`../api/events/${eventId}`)
+                .then((response) => {
+                    if (response.ok) {
+                        response.json().then((event) => {
+                            const map = getMap();
+                            drawMarkers(event, map);
+                            map.panTo(new L.LatLng(parseFloat(event.coords.lat), parseFloat(event.coords.lon)));
+                        });
+                    }
+                })
+                .catch((error) => {
+                    console.log(`Error getting event from db. ${error}`);
+                });
+        }
+
+        function getEventId() {
+            // Get event id from url
+            const urlParams = new URLSearchParams(window.location.search);
+            const eventParameters = decodeURIComponent(urlParams.get('eventParameters'));
+            return JSON.parse(eventParameters);
+        }
+
+        function getMap() {
+            const map = L.map('eventMap').setView([43.2812044, -3.994903564], 7);
+            L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+                maxZoom: 19
+            }).addTo(map);
+
+            return map;
+        }
+
+        function drawMarkers(event, map) {
+            const markers = createMapMarkers(event);
+
+            addEventMarkerToMap(markers.eventMarker, map);
+            addTweetsMarkersToMap(markers.tweetsMarkers, map);
+        }
+
+        function createMapMarkers(event) {
+            const mapMarkers = {};
+            var tweetsMarkers = [];
+
+            event.tweets.forEach((tweet) => {
+                const marker = [tweet.metadata.coordenadas.coordinates[1], tweet.metadata.coordenadas.coordinates[0], tweet.textData.texto, tweet.tweetId];
+                tweetsMarkers.push(marker);
+            });
+
+            mapMarkers.eventMarker = { lon: event.coords.lon, lat: event.coords.lat, place: event.place };
+            mapMarkers.tweetsMarkers = tweetsMarkers;
+            return mapMarkers;
+        }
+
+        function addEventMarkerToMap(eventMarker, map) {
+            L.marker([eventMarker.lat, eventMarker.lon]).bindPopup(eventMarker.place).addTo(map);
+        }
+
+        function addTweetsMarkersToMap(markers, map) {
+            var twitterIcon = L.icon({
+                iconUrl: '../images/Twitter_Logo_Blue.png',
+                iconSize: [34, 34],
+                popupAnchor: [4, -8]
+            });
+
+            markers.forEach((marker) => {
+                const link = "javascript:goToParentSlide('".concat(marker[3]).concat("');");
+                const popupContent = `<p style="text-overflow: ellipsis;overflow:hidden; white-space: nowrap;">${marker[2]}</p><a href=${link}>Ir al momento</a>`;
+                const popup = L.popup({ maxWidth: 250 }).setContent(popupContent);
+
+                L.marker([marker[0], marker[1]], { icon: twitterIcon }).bindPopup(popup).addTo(map);
+            });
+        }
+
+        function goToParentSlide(slideId) {
+            const scope = parent.angular.element('#timelineDiv').scope();
+            scope.goToSlide(slideId);
+        }
+
+    </script>
+</body>
+</html>

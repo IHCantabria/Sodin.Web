@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <canvas id="lineChart" style="margin-top:50px; height:500px; width:100%;"></canvas>
+
+    <script src="../lib/jquery/jquery.js"></script>
+    <script src="../lib/Chart.js/Chart.js"></script>
+    <script src="../lib/underscore/underscore.js"></script>
+    <script src="../lib/moment/moment.js"></script>
+    <script>
+        $(document).ready(function () {
+            init();
+        });
+
+        function init() {
+            const chartParams = getChartParams();
+
+            fetch(`../api/events/${chartParams.eventId}`)
+                .then((response) => {
+                    if (response.ok) {
+                        response.json().then((data) => {
+                            const chartData = createChartData(data.measures);
+                            drawCharts(chartData, chartParams.pointIndex);
+                        });
+                    }
+                })
+                .catch((error) => {
+                    console.log(`Error getting event from db. ${error}`);
+                });
+        }
+
+        function getChartParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const decodedParams = decodeURIComponent(urlParams.get('chartParameters'));
+            return JSON.parse(decodedParams);
+        }
+
+        function createChartData(measures) {
+            var labels = [],
+                datasets = [],
+                i = 0;
+
+            const seriesGroupedByVariable = _.groupBy(measures, (m) => m.variableCode);
+            var colors = ['#a7c0cd', '#455A64', '#36A2EB', '#FF6384', '#a7c0cd', '#455A64'];
+
+            _.each(_.uniq(_.pluck(measures, 'date')), (date) => {
+                labels.push(moment(date).utc().format("DD-MM-YYYY HH:mm"));
+            });
+
+            const sortedLabels = _.sortBy(labels);
+            _.each(seriesGroupedByVariable, (serie) => {
+                const uniqueMeasures = _.uniq(serie, ((m) => (m.value && m.date)));
+                var newSerie = [];
+                _.each(sortedLabels, (label) => {
+                    newSerie.push(_.find(uniqueMeasures, (m) => moment(m.date).utc().format("DD-MM-YYYY HH:mm") === label));
+                });
+
+                const dataset = {
+                    label: uniqueMeasures[0].variable.name + '(' + uniqueMeasures[0].variable.unit + ')',
+                    borderColor: colors[i],
+                    data: _.pluck(newSerie, 'value')
+                };
+                datasets.push(dataset);
+                i++;
+            });
+
+            return {
+                labels: sortedLabels,
+                datasets: datasets
+            };
+        }
+
+        function drawCharts(chartData, pointIndex) {
+            const ctx = document.getElementById("lineChart");
+            var chartDrawn = false;
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: chartData.labels,
+                    datasets: chartData.datasets
+                },
+                options: {
+                    animation: {
+                        duration: 1000,
+                        onComplete: () => { highlightPoint(pointIndex); }
+                    }
+                }
+            });
+
+            function highlightPoint(pointIndex) {
+                if (chartDrawn === false) {
+                    chartDrawn = true; //Prevents highlightPoint from occurring multiple time
+                    numDatasets = myChart.config.data.datasets.length;
+                    for (let i = 0; i < numDatasets; i++) {
+                        const dataset = myChart.getDatasetMeta(i);
+                        setPointHighlightStyle(dataset.data[pointIndex]);
+                    }
+                    myChart.update(0);
+                }
+            }
+        }
+
+        function setPointHighlightStyle(point) {
+            if (point) {
+                point.custom = point.custom || {};
+                point.custom.backgroundColor = "#FF5983";
+                point.custom.borderColor = '#F50057';
+                point.custom.radius = 7;
+            }
+        }
+
+    </script>
+</body>
+</html>

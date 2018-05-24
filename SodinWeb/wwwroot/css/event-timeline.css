@@ -1,0 +1,18 @@
+﻿.timeline-wrapper {
+    position: relative;
+    margin: 20px;
+}
+
+    .timeline-wrapper .tl-icon-media-demo:after {
+        font-family: 'Glyphicons Halflings';
+        font-weight: bold;
+        content: "\e021";
+    }
+
+.timeline .tl-attribution {
+    display: none;
+}
+
+.timelineNavIcos {
+    margin: 2px;
+}
