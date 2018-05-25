@@ -1,1 +1,0 @@
-{"options":{},"indexes":[{"v":1,"key":{"_id":1},"name":"_id_","ns":"TestSodinBD.nucleos"},{"v":1,"key":{"geometry":"2dsphere"},"name":"geometry_2dsphere","ns":"TestSodinBD.nucleos","2dsphereIndexVersion":3}]}
