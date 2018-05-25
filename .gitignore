@@ -3,6 +3,10 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+SodinWeb/config.json
+TestSodinWeb/test_config.json
+.gitignore
+
 # User-specific files
 *.suo
 *.user
@@ -28,6 +32,7 @@ bld/
 .vs/
 # Uncomment if you have tasks that create the project's static files in wwwroot
 **/wwwroot/lib
+**/wwwroot/dist
 **/wwwroot/app.js
 **/wwwroot/app.js.map
 
