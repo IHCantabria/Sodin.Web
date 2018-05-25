@@ -1,0 +1,8 @@
+﻿{
+  /***** SODIN TEST DB*****/
+
+  "MongoDb": {
+    "connection": "",
+    "name": "TestSodinBD"
+  }
+}

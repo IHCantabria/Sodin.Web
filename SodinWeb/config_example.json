@@ -1,0 +1,8 @@
+﻿{
+  /***** SODIN DB*****/
+  "MongoDb": {
+    "connection": "",
+    "name": "SodinBD"
+  }
+}
+  
