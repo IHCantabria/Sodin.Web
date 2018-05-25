@@ -86,8 +86,7 @@ namespace TestSodinWeb.IntegrationTests
 
             foreach (var measure in postEvent.Measures)
             {
-                Assert.IsNotNull(measure.Station);
-                Assert.IsTrue(measure.Station.StationId == measure.StationId);
+                Assert.IsNotNull(measure.StationId);
             }
         }
 

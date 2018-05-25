@@ -19,7 +19,8 @@ namespace TestSodinWeb.Stubs
         public PostEvent GetPostEvent(string eventId)
         {
             var fileName = $"PostEventBson_{eventId}.json";
-            var fullPath = $@"C:\SVN\SODIN\SODIN_Web\src\TestSodinWeb\Stubs\FakeData\{fileName}";
+            var fullPath = $@"{AppDomain.CurrentDomain.SetupInformation.ApplicationBase}\Stubs\FakeData\{fileName}";
+            
             if (!File.Exists(fullPath))
             {
                 return null;
