@@ -198,6 +198,9 @@
     </None>
     <None Include="Stubs\FakeData\ProcessedTweet.json" />
     <None Include="packages.config" />
+    <None Include="tests_config_example.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="tests_config.json" CopyToOutputDirectory="Always" />
   </ItemGroup>
   <ItemGroup>
