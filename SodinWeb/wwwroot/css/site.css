@@ -67,8 +67,13 @@
 }
 
 .logos-about {
-    padding: 5%;
+    padding: 20px;
 }
+
+    .logos-about img {
+        padding: 10px;
+        padding-left: 20px;
+    }
 
 .img-full-width {
     width: 100%;
@@ -160,6 +165,10 @@
     .progress .indeterminate {
         background-color: rgb(255,64,129);
     }
+
+.modal {
+    width: 75%;
+}
 
 .switch label input[type=checkbox]:checked + .lever::after {
     background-color: #f50057; /*Alt dark: #455A64*/

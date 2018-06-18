@@ -192,6 +192,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <Content Include="tests_config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Stubs\FakeData\Measure.json" />
     <None Include="Stubs\FakeData\PostEventBson_596f94ac69083535b4caa261.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -201,7 +204,6 @@
     <None Include="tests_config_example.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="tests_config.json" CopyToOutputDirectory="Always" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SodinWeb\SodinWeb.csproj">

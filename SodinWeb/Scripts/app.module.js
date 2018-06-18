@@ -19,5 +19,5 @@
                     .otherwise({ redirectTo: '/' });
                 $locationProvider.hashPrefix('');
             }])
-        .constant('SODIN_CONFIG', { 'VERSION': '1.2' });
+        .constant('SODIN_CONFIG', { 'VERSION': '1.3' });
 })();
